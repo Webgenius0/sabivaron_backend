@@ -13,7 +13,7 @@ To Install & Run This Project, Follow These Steps:
 2. Navigate to the project directory:
 
     ```sh
-    cd mirko86z_backend
+    cd sabivaro_backend
     ```
 
 3. Install project dependencies:
