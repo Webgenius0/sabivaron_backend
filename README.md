@@ -7,7 +7,7 @@ To Install & Run This Project, Follow These Steps:
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/mdiktushar/repo-pattern-jwt-laravel.git
+    git clone https://github.com/Webgenius0/sabivaron_backend.git
     ```
 
 2. Navigate to the project directory:
