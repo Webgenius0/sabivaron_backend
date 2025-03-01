@@ -15,6 +15,9 @@ return new class extends Migration {
             $table->string('email', 150)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone', 20);
+            $table->integer('otp')->nullable();
+            $table->timestamp('otp_created_at')->nullable();
 
             $table->boolean('terms_and_policy')->default(false);
 
@@ -22,7 +25,7 @@ return new class extends Migration {
             $table->string('google_id')->nullable()->unique();
             $table->string('apple_id')->nullable()->unique();
 
-            $table->enum('role', ['admin', 'user'])->default('user')->nullable(false);
+            $table->enum('role', ['admin', 'client','case'])->default('case')->nullable(false);
             $table->enum('status', ['active', 'inactive'])->default('active');
 
             $table->rememberToken();

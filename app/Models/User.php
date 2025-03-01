@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable {
+class User extends Authenticatable implements JWTSubject
+
+ {
     use HasFactory, Notifiable, SoftDeletes;
 
     /**
@@ -27,6 +30,9 @@ class User extends Authenticatable {
         'password',
         'remember_token',
     ];
+    protected $casts = [
+        'otp_created_at' => 'datetime',
+    ];
 
     /**
      * Get the attributes that should be cast.
@@ -40,4 +46,18 @@ class User extends Authenticatable {
             'terms_and_policy'  => 'boolean',
         ];
     }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key-value array containing any custom claims to be added to the JWT.
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
+
